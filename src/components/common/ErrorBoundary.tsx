@@ -13,8 +13,7 @@ interface State {
 }
 
 /**
- * Error boundary wrapper to save Application parts from falling
- * @component ErrorBoundary
+ * Error boundary wrapper to save application parts from falling
  * @param {string} [props.name] - name of the wrapped segment, "Error Boundary" by default
  */
 class ErrorBoundary extends Component<Props, State> {
@@ -35,7 +34,7 @@ class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Save information to help render Error UI
     this.setState({ error, errorInfo });
-    // TODO: Add log error messages to an error reporting service here
+    console.error(error, errorInfo)
   }
 
   render() {

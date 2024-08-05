@@ -24,20 +24,20 @@ interface Props extends StackProps {
 
 /**
  * Renders "TopBar and SideBar" composition
- * @layout TopBarAndSideBarLayout
  */
 const TopBarAndSideBarLayout: FunctionComponent<Props> = ({ children, sidebarItems, title, variant }) => {
   const [state] = useAppStore();
-  const [sidebarVisible, setSidebarVisible] = useState(false); // TODO: Verify is default value is correct
+  const [sidebarVisible, setSidebarVisible] = useState(false);
   const onMobile = useIsMobile();
   const onSwitchDarkMode = useEventSwitchDarkMode();
 
   const sidebarProps = useMemo((): Partial<SideBarProps> => {
     const anchor = onMobile ? SIDE_BAR_MOBILE_ANCHOR : SIDE_BAR_DESKTOP_ANCHOR;
     let open = sidebarVisible;
-    let sidebarVariant: SideBarProps['variant'] = 'temporary';
+    let sidebarVariant: SideBarProps['variant'];
     switch (variant) {
       case 'sidebarAlwaysTemporary':
+        sidebarVariant = 'temporary';
         break;
       case 'sidebarPersistentOnDesktop':
         open = onMobile ? sidebarVisible : true;
@@ -86,8 +86,7 @@ const TopBarAndSideBarLayout: FunctionComponent<Props> = ({ children, sidebarIte
 
   const DarkModeButton = (
     <AppIconButton
-      icon={state.darkMode ? 'day' : 'night'} // Variant 1
-      // icon="daynight" // Variant 2
+      icon={state.darkMode ? 'night' : 'day'}
       title={state.darkMode ? 'Switch to Light mode' : 'Switch to Dark mode'}
       onClick={onSwitchDarkMode}
     />

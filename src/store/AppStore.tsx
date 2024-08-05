@@ -33,6 +33,7 @@ const AppStoreProvider: FunctionComponent<PropsWithChildren> = ({ children }) =>
   // const prefersDarkMode = IS_SERVER ? false : useMediaQuery('(prefers-color-scheme: dark)'); // Note: Conditional hook is bad idea :(
   const prefersDarkMode = IS_SERVER ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
   const previousDarkMode = IS_SERVER ? false : Boolean(localStorageGet('darkMode', false));
+  // TODO: Do authentication here
   // const tokenExists = Boolean(loadToken());
 
   const initialState: AppStoreState = {

@@ -3,7 +3,6 @@ import { FunctionComponent, PropsWithChildren } from 'react';
 
 /**
  * Platform-specific ThemeProvider for Next.js
- * @component MuiThemeProviderForNextJs
  */
 const MuiThemeProviderForNextJs: FunctionComponent<PropsWithChildren> = ({ children }) => {
   return <AppRouterCacheProvider>{children}</AppRouterCacheProvider>;

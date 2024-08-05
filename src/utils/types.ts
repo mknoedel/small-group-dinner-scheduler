@@ -1,6 +1,3 @@
-// Helper to read object's properties as obj['name']
-export type ObjectPropByName = Record<string, any>;
-
 /**
  * Data for "Page Link" in SideBar adn other UI elements
  */

@@ -13,8 +13,6 @@ export interface SideBarProps extends Pick<DrawerProps, 'anchor' | 'className' |
 
 /**
  * Renders SideBar with Menu and User details
- * Actually for Authenticated users only, rendered in "Private Layout"
- * @component SideBar
  * @param {string} anchor - 'left' or 'right'
  * @param {boolean} open - the Drawer is visible when true
  * @param {string} variant - variant of the Drawer, one of 'permanent', 'persistent', 'temporary'
@@ -22,8 +20,7 @@ export interface SideBarProps extends Pick<DrawerProps, 'anchor' | 'className' |
  */
 const SideBar: FunctionComponent<SideBarProps> = ({ anchor, open, variant, items, onClose, ...restOfProps }) => {
   const [state] = useAppStore();
-  // const isAuthenticated = state.isAuthenticated; // Variant 1
-  const isAuthenticated = useIsAuthenticated(); // Variant 2
+  const isAuthenticated = useIsAuthenticated();
   const onMobile = useIsMobile();
 
   const onSwitchDarkMode = useEventSwitchDarkMode();

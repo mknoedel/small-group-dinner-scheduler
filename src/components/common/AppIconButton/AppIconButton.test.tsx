@@ -12,11 +12,6 @@ function randomPropertyName(obj: object): string {
   return propertyName;
 }
 
-// function randomPropertyValue(obj: object): unknown {
-//   const propertyName = randomPropertyName(obj);
-//   return (obj as ObjectPropByName)[propertyName];
-// }
-
 /**
  * Tests for <AppIconButton/> component
  */

@@ -13,8 +13,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: '_TITLE_',
-  description: '_DESCRIPTION_',
+  title: 'Small Group Dinner Scheduler',
+  description: 'A tool to help schedule small group dinners',
   manifest: '/site.webmanifest',
   // TODO: Add Open Graph metadata
 };

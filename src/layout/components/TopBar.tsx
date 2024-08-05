@@ -9,17 +9,11 @@ interface Props {
 
 /**
  * Renders TopBar composition
- * @component TopBar
  */
 const TopBar: FunctionComponent<Props> = ({ endNode, startNode, title = '', ...restOfProps }) => {
   return (
     <AppBar
       component="div"
-      sx={
-        {
-          // boxShadow: 'none', // Uncomment to hide shadow
-        }
-      }
       {...restOfProps}
     >
       <Toolbar disableGutters sx={{ paddingX: 1 }}>

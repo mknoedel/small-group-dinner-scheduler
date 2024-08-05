@@ -1,7 +1,7 @@
 {
-  "name": "_TITLE_",
-  "short_name": "_TITLE_",
-  "description": "_DESCRIPTION_",
+  "name": "Small Group Dinner Scheduler",
+  "short_name": "SGD Scheduler",
+  "description": "A tool to help schedule small group dinners.",
   "start_url": ".",
   "theme_color": "#000000",
   "background_color": "#ffffff",

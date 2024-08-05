@@ -9,11 +9,6 @@ interface Props extends StackProps {
   value?: number;
 }
 
-/**
- * Renders MI circular progress centered inside Stack
- * @component AppLoading
- * @prop {string} [size] - size of the progress component. Numbers means pixels, string can be '2.5rem'
- */
 const AppLoading: FunctionComponent<Props> = ({
   color = APP_LOADING_COLOR,
   size = APP_LOADING_SIZE,

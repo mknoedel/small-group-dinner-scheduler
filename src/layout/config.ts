@@ -5,7 +5,7 @@
 /**
  * SideBar configuration
  */
-export const SIDE_BAR_MOBILE_ANCHOR = 'right'; // 'right';
+export const SIDE_BAR_MOBILE_ANCHOR = 'right'; // 'left';
 export const SIDE_BAR_DESKTOP_ANCHOR = 'left'; // 'right';
 export const SIDE_BAR_WIDTH = '240px';
 
@@ -18,4 +18,4 @@ export const TOP_BAR_DESKTOP_HEIGHT = '64px';
 /**
  * BottomBar configuration
  */
-export const BOTTOM_BAR_DESKTOP_VISIBLE = false; // true;
+export const BOTTOM_BAR_DESKTOP_VISIBLE = true; // false ;

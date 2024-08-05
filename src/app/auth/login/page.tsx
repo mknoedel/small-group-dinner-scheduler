@@ -14,8 +14,8 @@ const LoginPage: NextPage = () => {
 };
 
 export const metadata: Metadata = {
-  title: 'Login - _TITLE_',
-  description: '_DESCRIPTION_',
+  title: 'Login - Small Group Dinner Scheduler',
+  description: 'A tool to help schedule small group dinners',
 };
 
 export default LoginPage;

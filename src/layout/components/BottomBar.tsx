@@ -11,7 +11,6 @@ interface Props {
 
 /**
  * Renders horizontal Navigation Bar using MUI BottomNavigation component
- * @component BottomBar
  */
 const BottomBar: FunctionComponent<Props> = ({ items }) => {
   const router = useRouter();

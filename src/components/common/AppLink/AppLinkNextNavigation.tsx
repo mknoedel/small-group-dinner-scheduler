@@ -26,7 +26,6 @@ interface NextLinkComposedProps
 
 /**
  * NextJS composed link to use with Material UI
- * @NextLinkComposed NextLinkComposed
  */
 const NextLinkComposed = forwardRef<HTMLAnchorElement, NextLinkComposedProps>(function NextLinkComposed(
   { to, linkAs, href, replace, scroll, passHref, shallow, prefetch, ...restOfProps },
@@ -83,7 +82,7 @@ const AppLinkForNext = forwardRef<HTMLAnchorElement, AppLinkForNextProps>(functi
     className: classNameProps,
     href,
     noLinkStyle,
-    role, // Link don't have roles, so just exclude it from ...restOfProps
+    role, // Links don't have roles, so exclude them from ...restOfProps
     color = APP_LINK_COLOR,
     underline = APP_LINK_UNDERLINE,
     to,

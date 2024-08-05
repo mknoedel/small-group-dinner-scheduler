@@ -1,13 +1,12 @@
 {
-  "name": "nextjs-mui-starter-ts",
-  "version": "0.2.9",
-  "description": "_DESCRIPTION_",
+  "name": "small-group-dinner-scheduler",
+  "version": "0.1.0",
+  "description": "A tool to help schedule small group dinners.",
   "author": {
-    "name": "Anton Karpenko",
-    "email": "i@karpolan.com",
-    "url": "https://karpolan.com"
+    "name": "Michael Knoedel",
+    "email": "mknoedel@gmail.com"
   },
-  "private": true,
+  "private": false,
   "keywords": [
     "nextjs",
     "react",
@@ -18,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/karpolan/nextjs-mui-starter-ts.git"
+    "url": "https://github.com/mknoedel/small-group-dinner-scheduler.git"
   },
   "scripts": {
     "dev": "next dev",
@@ -35,9 +34,11 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
+    "@hello-pangea/dnd": "^16.6.0",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/material-nextjs": "latest",
+    "axios": "latest",
     "clsx": "latest",
     "copy-to-clipboard": "latest",
     "next": "latest",

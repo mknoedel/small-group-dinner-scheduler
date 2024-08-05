@@ -15,7 +15,6 @@ function getThemeByDarkMode(darkMode: boolean) {
 /**
  * Renders composition of Emotion's CacheProvider + MUI's ThemeProvider to wrap content of entire App
  * The Light or Dark themes applied depending on global .darkMode state
- * @component AppThemeProvider
  */
 const AppThemeProvider: FunctionComponent<PropsWithChildren> = ({ children }) => {
   const [state] = useAppStore();

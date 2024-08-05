@@ -7,7 +7,7 @@ const nextConfig = {
 
   env: {
     // TODO: You can add custom env variables here, also check .env.xxx file
-    AUTHOR: 'KARPOLAN',
+    AUTHOR: 'Michael Knoedel',
     // npm_package_name: process.env.npm_package_name,
     // npm_package_version: process.env.npm_package_version,
   },

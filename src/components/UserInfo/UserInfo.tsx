@@ -9,7 +9,6 @@ interface UserInfoProps {
 
 /**
  * Renders User info with Avatar
- * @component UserInfo
  * @param {boolean} [showAvatar] - user's avatar picture is shown when true
  * @param {object} [user] - logged user data {name, email, avatar...}
  */
@@ -36,7 +35,7 @@ const UserInfo = ({ showAvatar = false, user, ...restOfProps }: UserInfoProps) =
       <Typography sx={{ mt: 1 }} variant="h6">
         {fullName || 'Current User'}
       </Typography>
-      <Typography variant="body2">{userPhoneOrEmail || 'Loading...'}</Typography>
+      {userPhoneOrEmail && <Typography variant="body2">{userPhoneOrEmail}</Typography>}
     </Stack>
   );
 };
