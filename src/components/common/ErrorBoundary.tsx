@@ -34,7 +34,7 @@ class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Save information to help render Error UI
     this.setState({ error, errorInfo });
-    console.error(error, errorInfo)
+    console.error(error, errorInfo);
   }
 
   render() {

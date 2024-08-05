@@ -6,7 +6,6 @@ import { useAppStore } from '@/store';
 import { useEventLogout } from '@/hooks';
 import { sessionStorageSet } from '@/utils';
 
-
 const LoginForm = () => {
   const router = useRouter();
   const [, dispatch] = useAppStore();

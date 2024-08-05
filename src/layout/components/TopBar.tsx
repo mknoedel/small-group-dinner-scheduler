@@ -12,10 +12,7 @@ interface Props {
  */
 const TopBar: FunctionComponent<Props> = ({ endNode, startNode, title = '', ...restOfProps }) => {
   return (
-    <AppBar
-      component="div"
-      {...restOfProps}
-    >
+    <AppBar component="div" {...restOfProps}>
       <Toolbar disableGutters sx={{ paddingX: 1 }}>
         {startNode}
 
