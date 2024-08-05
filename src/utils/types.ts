@@ -1,4 +1,4 @@
-import { IconName } from "@/components/common/AppIcon/config";
+import { IconName } from '@/components/common/AppIcon/config';
 
 /**
  * Data for "Page Link" in SideBar adn other UI elements

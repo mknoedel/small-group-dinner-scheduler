@@ -18,7 +18,8 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
-import DangerousIcon from '@mui/icons-material/Dangerous';``
+import DangerousIcon from '@mui/icons-material/Dangerous';
+``;
 
 /**
  * List of all available Icon names

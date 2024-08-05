@@ -82,7 +82,7 @@ const DemoAppIconButton = () => {
             title="Large icon with Secondary color as Internal link"
           />
           <InternalAppIconButton
-            color={"#F0F" as MUIButtonColor}
+            color={'#F0F' as MUIButtonColor}
             href="https://karpolan.com"
             icon="close"
             size="small"

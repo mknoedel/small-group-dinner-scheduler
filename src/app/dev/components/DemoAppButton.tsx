@@ -66,19 +66,19 @@ const DemoAppButton = () => {
         <InternalAppButton color="error">error</InternalAppButton>
         <InternalAppButton color="info">info</InternalAppButton>
         <InternalAppButton color="warning">warning</InternalAppButton>
-        <InternalAppButton color={"red" as MUIButtonColor} endIcon="close">
+        <InternalAppButton color={'red' as MUIButtonColor} endIcon="close">
           Red
         </InternalAppButton>
-        <InternalAppButton color={"green" as MUIButtonColor} startIcon="menu">
+        <InternalAppButton color={'green' as MUIButtonColor} startIcon="menu">
           Green
         </InternalAppButton>
-        <InternalAppButton color={"blue" as MUIButtonColor} startIcon="menu" endIcon="close">
+        <InternalAppButton color={'blue' as MUIButtonColor} startIcon="menu" endIcon="close">
           Blue
         </InternalAppButton>
-        <InternalAppButton color={"#f0f" as MUIButtonColor} to="/">
+        <InternalAppButton color={'#f0f' as MUIButtonColor} to="/">
           #f0f
         </InternalAppButton>
-        <InternalAppButton color={"rgba(255, 0, 255, 0.5)" as MUIButtonColor} to="/">
+        <InternalAppButton color={'rgba(255, 0, 255, 0.5)' as MUIButtonColor} to="/">
           rgba(255, 0, 255, 0.5)
         </InternalAppButton>
       </CardContent>

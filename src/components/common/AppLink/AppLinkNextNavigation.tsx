@@ -97,8 +97,7 @@ const AppLinkForNext = forwardRef<HTMLAnchorElement, AppLinkForNextProps>(functi
     [activeClassName]: pathname == currentPath && activeClassName,
   });
 
-  const isExternal =
-    typeof destination === 'string' && destination.startsWith('http');
+  const isExternal = typeof destination === 'string' && destination.startsWith('http');
 
   const propsToRender = {
     color,

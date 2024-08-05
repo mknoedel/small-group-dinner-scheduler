@@ -6,13 +6,12 @@ import { APP_BUTTON_VARIANT } from '../../config';
 import { MUI_BUTTON_COLORS, MUIButtonColor } from './colors';
 import { IconName } from '../AppIcon/config';
 
-
 const DEFAULT_SX_VALUES = {
   margin: 1, // By default the AppButton has theme.spacing(1) margin on all sides
 };
 
 export interface AppButtonProps extends Omit<ButtonProps, 'color' | 'endIcon' | 'startIcon'> {
-  color?: MUIButtonColor; 
+  color?: MUIButtonColor;
   endIcon?: IconName;
   label?: string; // Alternate to .text
   text?: string; // Alternate to .label
@@ -54,15 +53,9 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
   variant = APP_BUTTON_VARIANT,
   ...restOfProps
 }) => {
-  const iconStart: ReactNode = useMemo(
-    () => (!startIcon ? undefined : typeof startIcon === 'string' ? <AppIcon icon={startIcon} /> : startIcon),
-    [startIcon]
-  );
+  const iconStart: ReactNode = useMemo(() => (!startIcon ? undefined : <AppIcon icon={startIcon} />), [startIcon]);
 
-  const iconEnd: ReactNode = useMemo(
-    () => (!endIcon ? undefined : typeof endIcon === 'string' ? <AppIcon icon={endIcon} /> : endIcon),
-    [endIcon]
-  );
+  const iconEnd: ReactNode = useMemo(() => (!endIcon ? undefined : <AppIcon icon={endIcon} />), [endIcon]);
 
   const isMuiColor = useMemo(() => MUI_BUTTON_COLORS.includes(propColor), [propColor]);
 

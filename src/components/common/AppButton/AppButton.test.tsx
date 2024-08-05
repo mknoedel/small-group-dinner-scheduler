@@ -2,7 +2,6 @@ import { FunctionComponent } from 'react';
 import { render, screen, within } from '@testing-library/react';
 import { ThemeProvider } from '../../../theme';
 import AppButton, { AppButtonProps } from './AppButton';
-import DefaultIcon from '@mui/icons-material/MoreHoriz';
 import { randomText, capitalize } from '@/utils';
 import { MUIButtonColor } from './colors';
 
@@ -100,29 +99,9 @@ describe('<AppButton/> component', () => {
     expect(button).toBeDefined();
   });
 
-  it('supports .startIcon property as <svg/>', () => {
-    let text = 'button with start icon';
-    render(<ComponentToTest text={text} startIcon={"default"} />);
-    let button = screen.getByText(text);
-    let icon = within(button).getByTestId('startIcon');
-    expect(icon).toBeDefined();
-    let span = icon.closest('span');
-    expect(span).toHaveClass('MuiButton-startIcon');
-  });
-
-  it('supports .endIcon property', () => {
-    let text = 'button with end icon as <svg/>';
-    render(<ComponentToTest text={text} endIcon={"default"} />);
-    let button = screen.getByText(text);
-    let icon = within(button).getByTestId('endIcon');
-    expect(icon).toBeDefined();
-    let span = icon.closest('span');
-    expect(span).toHaveClass('MuiButton-endIcon');
-  });
-
   it('supports .startIcon property as string', () => {
     let text = 'button with start icon';
-    render(<ComponentToTest text={text} startIcon="default" />);
+    render(<ComponentToTest text={text} startIcon={'default'} />);
     let button = screen.getByText(text);
     let icon = within(button).getByTestId('MoreHorizIcon'); //Note: this is valid only when "default" icon is <MoreHorizIcon />
     expect(icon).toBeDefined();
