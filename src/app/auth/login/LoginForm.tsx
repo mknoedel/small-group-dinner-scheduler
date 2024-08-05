@@ -31,11 +31,6 @@ const LoginForm = () => {
           Logout User
         </AppButton>
       </Stack>
-
-      <div>
-        The source code is available at{' '}
-        <AppLink href="https://github.com/karpolan/nextjs-mui-starter-ts">GitHub</AppLink>
-      </div>
     </Stack>
   );
 };

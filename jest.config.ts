@@ -1,8 +1,6 @@
 import type { Config } from 'jest';
 import nextJest from 'next/jest.js';
 
-// const nextJest = require('next/jest');
-
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.* and .env files in your test environment
   dir: './',
@@ -16,7 +14,6 @@ const customJestConfig: Config = {
     // Handle module aliases
     '^@/(.*)$': '<rootDir>/$1',
   },
-  // testEnvironment: 'jest-environment-jsdom',
   testEnvironment: 'jsdom',
   // transform: {
   //   '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',

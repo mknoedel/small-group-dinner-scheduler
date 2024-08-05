@@ -10,7 +10,7 @@ interface AppImageProps extends Omit<ImageProps, 'alt'> {
  * @component AppImage
  */
 const AppImage: FunctionComponent<AppImageProps> = ({
-  title, // Note: value has be destructed before usage as default value for other property
+  title,
   alt = title ?? 'Image',
   height = 256,
   width = 256,

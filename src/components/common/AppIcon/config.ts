@@ -18,7 +18,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
-import DangerousIcon from '@mui/icons-material/Dangerous';
+import DangerousIcon from '@mui/icons-material/Dangerous';``
 
 /**
  * List of all available Icon names
@@ -31,7 +31,6 @@ export type IconName = keyof typeof ICONS;
  * 2. Add icons with "unique lowercase names" into ICONS object. Lowercase is a must!
  * 3. Use icons everywhere in the App by their names in <Icon icon="xxx" /> component
  * Important: properties of ICONS object MUST be lowercase!
- * Note: You can use camelCase or UPPERCASE in the <Icon icon="someIconByName" /> component
  */
 export const ICONS /* Note: Setting type disables property autocomplete :( was - : Record<string, ComponentType> */ = {
   default: DefaultIcon,

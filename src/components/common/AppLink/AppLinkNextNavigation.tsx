@@ -98,7 +98,7 @@ const AppLinkForNext = forwardRef<HTMLAnchorElement, AppLinkForNextProps>(functi
   });
 
   const isExternal =
-    typeof destination === 'string' && (destination.startsWith('http') || destination.startsWith('mailto:'));
+    typeof destination === 'string' && destination.startsWith('http');
 
   const propsToRender = {
     color,

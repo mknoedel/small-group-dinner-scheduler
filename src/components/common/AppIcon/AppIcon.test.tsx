@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import AppIcon from './AppIcon';
 import { APP_ICON_SIZE } from '../../config';
 import { randomColor, randomText } from '@/utils';
-import { ICONS } from './config';
+import { IconName, ICONS } from './config';
 
 const ComponentToTest = AppIcon;
 
@@ -27,7 +27,6 @@ describe('<AppIcon/> component', () => {
     render(<ComponentToTest data-testid={testId} color={color} />);
     const svg = screen.getByTestId(testId);
     expect(svg).toHaveAttribute('data-icon', 'default');
-    // expect(svg).toHaveAttribute('color', color); // TODO: Looks like MUI Icons exclude .color property from <svg> rendering
     expect(svg).toHaveStyle(`color: ${color}`);
     expect(svg).toHaveAttribute('fill', 'currentColor'); // .fill must be 'currentColor' when .color property is set
   });
@@ -36,7 +35,7 @@ describe('<AppIcon/> component', () => {
     // Verify that all icons are supported
     for (const icon of Object.keys(ICONS)) {
       const testId = randomText(8);
-      render(<ComponentToTest data-testid={testId} icon={icon} />);
+      render(<ComponentToTest data-testid={testId} icon={icon as IconName} />);
       const svg = screen.getByTestId(testId);
       expect(svg).toBeDefined();
       expect(svg).toHaveAttribute('data-icon', icon.toLowerCase());

@@ -1,8 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import AppIconButton, { MUI_ICON_BUTTON_COLORS } from './AppIconButton';
+import AppIconButton from './AppIconButton';
 import { APP_ICON_SIZE } from '../../config';
 import { capitalize, randomColor, randomText } from '@/utils';
-import { ICONS } from '../AppIcon/config';
+import { IconName, ICONS } from '../AppIcon/config';
+import { MUI_BUTTON_COLORS } from '../AppButton/colors';
 
 const ComponentToTest = AppIconButton;
 
@@ -36,10 +37,10 @@ describe('<AppIconButton/> component', () => {
   });
 
   it('supports .color property', () => {
-    for (const color of [...MUI_ICON_BUTTON_COLORS, randomColor(), randomColor(), randomColor()]) {
+    for (const color of [...MUI_BUTTON_COLORS, randomColor(), randomColor(), randomColor()]) {
       const testId = randomText(8);
       const icon = randomPropertyName(ICONS) as string;
-      render(<ComponentToTest data-testid={testId} color={color} icon={icon} />);
+      render(<ComponentToTest data-testid={testId} color={color as any} icon={icon as IconName} />);
 
       // Button
       const button = screen.getByTestId(testId);
@@ -49,7 +50,7 @@ describe('<AppIconButton/> component', () => {
         return; // Nothing to test for default color
       }
 
-      if (MUI_ICON_BUTTON_COLORS.includes(color)) {
+      if (MUI_BUTTON_COLORS.includes(color as any)) {
         expect(button).toHaveClass(`MuiIconButton-color${capitalize(color)}`);
       } else {
         expect(button).toHaveStyle({ color: color });
@@ -73,7 +74,7 @@ describe('<AppIconButton/> component', () => {
     // Verify that all icons are supported
     for (const icon of Object.keys(ICONS)) {
       const testId = randomText(8);
-      render(<ComponentToTest data-testid={testId} icon={icon} />);
+      render(<ComponentToTest data-testid={testId} icon={icon as IconName} />);
 
       // Button
       const button = screen.getByTestId(testId);

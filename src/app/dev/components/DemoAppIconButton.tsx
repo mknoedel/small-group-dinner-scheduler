@@ -3,6 +3,7 @@ import { useState } from 'react';
 import copyToClipboard from 'copy-to-clipboard';
 import { Box, Card, CardContent, CardHeader, Snackbar, Tooltip } from '@mui/material';
 import AppIconButton, { AppIconButtonProps } from '@/components/common/AppIconButton/AppIconButton';
+import { MUIButtonColor } from '@/components/common/AppButton/colors';
 
 /**
  * Same as AppIconButton but with onClick handler that copies JSX code to Clipboard
@@ -81,7 +82,7 @@ const DemoAppIconButton = () => {
             title="Large icon with Secondary color as Internal link"
           />
           <InternalAppIconButton
-            color="#F0F"
+            color={"#F0F" as MUIButtonColor}
             href="https://karpolan.com"
             icon="close"
             size="small"

@@ -3,19 +3,20 @@ import Button, { ButtonProps } from '@mui/material/Button';
 import AppIcon from '../AppIcon';
 import AppLink from '../AppLink';
 import { APP_BUTTON_VARIANT } from '../../config';
+import { MUI_BUTTON_COLORS, MUIButtonColor } from './colors';
+import { IconName } from '../AppIcon/config';
 
-const MUI_BUTTON_COLORS = ['inherit', 'primary', 'secondary', 'success', 'error', 'info', 'warning'];
 
 const DEFAULT_SX_VALUES = {
   margin: 1, // By default the AppButton has theme.spacing(1) margin on all sides
 };
 
 export interface AppButtonProps extends Omit<ButtonProps, 'color' | 'endIcon' | 'startIcon'> {
-  color?: string; // Not only 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
-  endIcon?: string | ReactNode;
+  color?: MUIButtonColor; 
+  endIcon?: IconName;
   label?: string; // Alternate to .text
   text?: string; // Alternate to .label
-  startIcon?: string | ReactNode;
+  startIcon?: IconName;
   // Missing props
   component?: ElementType; // Could be RouterLink, AppLink, <a>, etc.
   to?: string; // Link prop
@@ -54,12 +55,12 @@ const AppButton: FunctionComponent<AppButtonProps> = ({
   ...restOfProps
 }) => {
   const iconStart: ReactNode = useMemo(
-    () => (!startIcon ? undefined : typeof startIcon === 'string' ? <AppIcon icon={String(startIcon)} /> : startIcon),
+    () => (!startIcon ? undefined : typeof startIcon === 'string' ? <AppIcon icon={startIcon} /> : startIcon),
     [startIcon]
   );
 
   const iconEnd: ReactNode = useMemo(
-    () => (!endIcon ? undefined : typeof endIcon === 'string' ? <AppIcon icon={String(endIcon)} /> : endIcon),
+    () => (!endIcon ? undefined : typeof endIcon === 'string' ? <AppIcon icon={endIcon} /> : endIcon),
     [endIcon]
   );
 

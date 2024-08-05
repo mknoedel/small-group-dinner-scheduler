@@ -3,7 +3,6 @@ import { AppAlert } from '@/components';
 
 /**
  * Renders "Demo Section" for AppButton component
- * @component DemoAppButton
  */
 const DemoAppButton = () => {
   return (

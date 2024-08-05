@@ -3,11 +3,10 @@ import { useState } from 'react';
 import copyToClipboard from 'copy-to-clipboard';
 import { Box, Card, CardContent, CardHeader, Snackbar } from '@mui/material';
 import { AppIconButton } from '@/components';
-import { ICONS } from '@/components/common/AppIcon/config';
+import { IconName, ICONS } from '@/components/common/AppIcon/config';
 
 /**
  * Renders "Demo Section" for AppIcon component
- * @component DemoAppIcon
  */
 const DemoAppIcon = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -20,7 +19,7 @@ const DemoAppIcon = () => {
           {Object.keys(ICONS).map((icon) => (
             <AppIconButton
               key={icon}
-              icon={icon}
+              icon={icon as IconName}
               title={icon}
               onClick={() => {
                 copyToClipboard(`<AppIcon icon="${icon}" />`);

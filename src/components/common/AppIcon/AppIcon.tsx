@@ -7,14 +7,13 @@ import { IconName, ICONS } from './config';
  */
 export interface Props extends SVGAttributes<SVGElement> {
   color?: string;
-  icon?: IconName | string;
+  icon?: IconName;
   size?: string | number;
   title?: string;
 }
 
 /**
  * Renders SVG icon by given Icon name
- * @component AppIcon
  * @param {string} [color] - color of the icon as a CSS color value
  * @param {string} [icon] - name of the Icon to render
  * @param {string} [title] - title/hint to show when the cursor hovers the icon
@@ -32,7 +31,7 @@ const AppIcon: FunctionComponent<Props> = ({
   let ComponentToRender: ComponentType = ICONS[iconName];
   if (!ComponentToRender) {
     console.warn(`AppIcon: icon "${iconName}" is not found!`);
-    ComponentToRender = ICONS.default; // ICONS['default'];
+    ComponentToRender = ICONS.default;
   }
 
   const propsToRender = {

@@ -4,6 +4,7 @@ import { ThemeProvider } from '../../../theme';
 import AppButton, { AppButtonProps } from './AppButton';
 import DefaultIcon from '@mui/icons-material/MoreHoriz';
 import { randomText, capitalize } from '@/utils';
+import { MUIButtonColor } from './colors';
 
 /**
  * AppButton wrapped with Theme Provider
@@ -16,11 +17,11 @@ const ComponentToTest: FunctionComponent<AppButtonProps> = (props) => (
 
 /**
  * Test specific color for AppButton
- * @param {string} colorName - name of the color, one of ColorName type
+ * @param {string} colorName - name of the color
  * @param {string} [expectedClassName] - optional value to be found in className (color "true" may use "success" class name)
  * @param {boolean} [ignoreClassName] - optional flag to ignore className (color "inherit" doesn't use any class name)
  */
-function testButtonColor(colorName: string, ignoreClassName = false, expectedClassName = colorName) {
+function testButtonColor(colorName: MUIButtonColor, ignoreClassName = false, expectedClassName = colorName) {
   it(`supports "${colorName}" color`, () => {
     const testId = randomText(8);
     let text = `${colorName} button`;
@@ -101,7 +102,7 @@ describe('<AppButton/> component', () => {
 
   it('supports .startIcon property as <svg/>', () => {
     let text = 'button with start icon';
-    render(<ComponentToTest text={text} startIcon={<DefaultIcon data-testid="startIcon" />} />);
+    render(<ComponentToTest text={text} startIcon={"default"} />);
     let button = screen.getByText(text);
     let icon = within(button).getByTestId('startIcon');
     expect(icon).toBeDefined();
@@ -111,7 +112,7 @@ describe('<AppButton/> component', () => {
 
   it('supports .endIcon property', () => {
     let text = 'button with end icon as <svg/>';
-    render(<ComponentToTest text={text} endIcon={<DefaultIcon data-testid="endIcon" />} />);
+    render(<ComponentToTest text={text} endIcon={"default"} />);
     let button = screen.getByText(text);
     let icon = within(button).getByTestId('endIcon');
     expect(icon).toBeDefined();
@@ -149,7 +150,7 @@ describe('<AppButton/> component', () => {
   testButtonColor('success');
 
   // Non-MUI colors
-  testButtonColor('green', true);
-  testButtonColor('#FF00FF', true);
-  testButtonColor('rgba(255, 0, 0, 0.5)', true);
+  testButtonColor('green' as MUIButtonColor, true);
+  testButtonColor('#FF00FF' as MUIButtonColor, true);
+  testButtonColor('rgba(255, 0, 0, 0.5)' as MUIButtonColor, true);
 });

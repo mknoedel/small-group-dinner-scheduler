@@ -10,7 +10,6 @@ import DemoAppImage from './components/DemoAppImage';
 
 /**
  * Renders Development tools when env.NEXT_PUBLIC_DEBUG is true
- * @page Dev
  */
 const DevPage: NextPage = () => {
   if (!IS_DEBUG) {
@@ -21,7 +20,6 @@ const DevPage: NextPage = () => {
     <Stack spacing={2} padding={2}>
       <Stack>
         <Typography variant="h3">DevTools page</Typography>
-        <Typography variant="body1">This page is not visible on production.</Typography>
       </Stack>
 
       <Stack alignItems="center" spacing={1}>

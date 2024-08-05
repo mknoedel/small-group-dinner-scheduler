@@ -12,11 +12,12 @@ export const viewport: Viewport = {
   themeColor: THEME_COLOR,
 };
 
+// TODO: Build a loading handler.
+
 export const metadata: Metadata = {
   title: 'Small Group Dinner Scheduler',
   description: 'A tool to help schedule small group dinners',
   manifest: '/site.webmanifest',
-  // TODO: Add Open Graph metadata
 };
 
 const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {

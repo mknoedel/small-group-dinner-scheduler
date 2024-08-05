@@ -5,21 +5,11 @@ import AppLink from '../AppLink';
 import { alpha } from '@mui/material';
 import { Props } from '../AppIcon/AppIcon';
 import { IconName } from '../AppIcon/config';
-
-export const MUI_ICON_BUTTON_COLORS = [
-  'inherit',
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'error',
-  'info',
-  'warning',
-];
+import { MUI_BUTTON_COLORS, MUIButtonColor } from '../AppButton/colors';
 
 export interface AppIconButtonProps extends Omit<IconButtonProps, 'color'> {
-  color?: string; // Not only 'inherit' | 'default' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
-  icon?: IconName | string;
+  color?: MUIButtonColor;
+  icon?: IconName;
   iconProps?: Partial<Props>;
   // Missing props
   component?: ElementType; // Could be RouterLink, AppLink, <a>, etc.
@@ -57,7 +47,7 @@ const AppIconButton: FunctionComponent<AppIconButtonProps> = ({
 }) => {
   const componentToRender = !component && (restOfProps?.href || restOfProps?.to) ? AppLink : component ?? IconButton;
 
-  const isMuiColor = useMemo(() => MUI_ICON_BUTTON_COLORS.includes(color), [color]);
+  const isMuiColor = useMemo(() => MUI_BUTTON_COLORS.includes(color), [color]);
 
   const iconButtonToRender = useMemo(() => {
     const colorToRender = isMuiColor ? (color as IconButtonProps['color']) : 'default';

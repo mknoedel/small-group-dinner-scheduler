@@ -4,7 +4,6 @@ import { AppAlert, UserInfo } from '../../components';
 
 /**
  * Renders User Profile Page
- * @page Me
  */
 const MeAkaProfilePage: NextPage = () => {
   return (

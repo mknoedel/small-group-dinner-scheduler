@@ -4,10 +4,10 @@ import copyToClipboard from 'copy-to-clipboard';
 import { Card, CardContent, CardHeader, Snackbar } from '@mui/material';
 import { AppButton } from '@/components';
 import { AppButtonProps } from '@/components/common/AppButton/AppButton';
+import { MUIButtonColor } from '@/components/common/AppButton/colors';
 
 /**
  * Same as AppButton but with onClick handler that copies JSX code to Clipboard
- * @component InternalAppButton
  */
 const InternalAppButton = (props: AppButtonProps) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -66,19 +66,19 @@ const DemoAppButton = () => {
         <InternalAppButton color="error">error</InternalAppButton>
         <InternalAppButton color="info">info</InternalAppButton>
         <InternalAppButton color="warning">warning</InternalAppButton>
-        <InternalAppButton color="red" endIcon="close">
+        <InternalAppButton color={"red" as MUIButtonColor} endIcon="close">
           Red
         </InternalAppButton>
-        <InternalAppButton color="green" startIcon="menu">
+        <InternalAppButton color={"green" as MUIButtonColor} startIcon="menu">
           Green
         </InternalAppButton>
-        <InternalAppButton color="blue" startIcon="menu" endIcon="close">
+        <InternalAppButton color={"blue" as MUIButtonColor} startIcon="menu" endIcon="close">
           Blue
         </InternalAppButton>
-        <InternalAppButton color="#f0f" to="/">
+        <InternalAppButton color={"#f0f" as MUIButtonColor} to="/">
           #f0f
         </InternalAppButton>
-        <InternalAppButton color="rgba(255, 0, 255, 0.5)" to="/">
+        <InternalAppButton color={"rgba(255, 0, 255, 0.5)" as MUIButtonColor} to="/">
           rgba(255, 0, 255, 0.5)
         </InternalAppButton>
       </CardContent>

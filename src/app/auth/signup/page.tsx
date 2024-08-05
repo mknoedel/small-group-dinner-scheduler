@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import LoginPage from '../login/page';
 
 export const metadata: Metadata = {
-  title: 'Signup - Small Group Dinner Scheduler',
-  description: 'A tool to help schedule small group dinners.',
+  title: 'Signup',
+  description: 'Signup for the Small Group Dinner Scheduler',
 };
 
-export default LoginPage; // Just reuse a Login page as a demo...
+export default LoginPage; // TODO: Don't reuse a Login page
