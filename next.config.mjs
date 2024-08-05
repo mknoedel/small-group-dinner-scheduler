@@ -4,16 +4,11 @@ const nextConfig = {
   output: 'export', // Use this if you want to create "static generated website" (SSG), result in "/out" folder
   trailingSlash: true,
   images: { unoptimized: true },
-
   env: {
-    // TODO: You can add custom env variables here, also check .env.xxx file
+    // You can add custom env variables here as well as in the .env file
     AUTHOR: 'Michael Knoedel',
-    // npm_package_name: process.env.npm_package_name,
-    // npm_package_version: process.env.npm_package_version,
   },
-
-  reactStrictMode: true,
-  // reactStrictMode: false,
+  reactStrictMode: true, // false
 };
 
 export default nextConfig;
