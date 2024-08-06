@@ -1,10 +1,11 @@
 import { Avatar, Stack, Typography } from '@mui/material';
 import { AppLink } from '../common';
+import { UserProfile } from '@auth0/nextjs-auth0/client';
 
 interface UserInfoProps {
   className?: string;
   showAvatar?: boolean;
-  user?: any;
+  user?: UserProfile;
 }
 
 /**
@@ -13,9 +14,9 @@ interface UserInfoProps {
  * @param {object} [user] - logged user data {name, email, avatar...}
  */
 const UserInfo = ({ showAvatar = false, user, ...restOfProps }: UserInfoProps) => {
-  const fullName = user?.name || [user?.nameFirst || '', user?.nameLast || ''].join(' ').trim();
-  const srcAvatar = user?.avatar ? user?.avatar : undefined;
-  const userPhoneOrEmail = user?.phone || (user?.email as string);
+  const fullName = [user?.given_name || '', user?.family_name || ''].join(' ').trim();
+  const avatar = user?.picture ? user?.picture : undefined;
+  const email = user?.email && [user?.email, user?.email_verified ? '' : '(UNVERIFIED)'].join(' ').trim()
 
   return (
     <Stack alignItems="center" minHeight="fit-content" marginBottom={2} {...restOfProps}>
@@ -28,14 +29,14 @@ const UserInfo = ({ showAvatar = false, user, ...restOfProps }: UserInfoProps) =
               fontSize: '3rem',
             }}
             alt={fullName || 'User Avatar'}
-            src={srcAvatar}
+            src={avatar}
           />
         </AppLink>
       ) : null}
       <Typography sx={{ mt: 1 }} variant="h6">
         {fullName || 'Current User'}
       </Typography>
-      {userPhoneOrEmail && <Typography variant="body2">{userPhoneOrEmail}</Typography>}
+      {email && <Typography variant="body2">{email}</Typography>}
     </Stack>
   );
 };

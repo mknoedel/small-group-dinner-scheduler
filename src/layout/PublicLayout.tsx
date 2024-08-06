@@ -15,13 +15,8 @@ const TITLE_PUBLIC = 'Unauthenticated';
 const SIDE_BAR_ITEMS: Array<LinkToPage> = [
   {
     title: 'Log In',
-    path: '/auth/login',
+    path: '/api/auth/login',
     icon: 'login',
-  },
-  {
-    title: 'Sign Up',
-    path: '/auth/signup',
-    icon: 'signup',
   },
   {
     title: 'About',
@@ -44,7 +39,7 @@ IS_DEBUG &&
 const BOTTOM_BAR_ITEMS: Array<LinkToPage> = [
   {
     title: 'Log In',
-    path: '/auth/login',
+    path: '/api/auth/login',
     icon: 'login',
   },
   {

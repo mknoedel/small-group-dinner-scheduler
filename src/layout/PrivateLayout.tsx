@@ -15,19 +15,19 @@ const SIDE_BAR_ITEMS: Array<LinkToPage> = [
     icon: 'home',
   },
   {
+    title: 'About',
+    path: '/about',
+    icon: 'info',
+  },
+  {
     title: 'My Profile',
     path: '/me',
     icon: 'account',
   },
   {
-    title: '404',
-    path: '/wrong-url',
-    icon: 'error',
-  },
-  {
-    title: 'About',
-    path: '/about',
-    icon: 'info',
+    title: 'Log Out',
+    path: '/api/auth/logout',
+    icon: 'logout',
   },
 ];
 

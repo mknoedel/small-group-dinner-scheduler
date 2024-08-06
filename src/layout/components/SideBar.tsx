@@ -2,10 +2,11 @@ import { FunctionComponent, useCallback, MouseEvent } from 'react';
 import { Stack, Divider, Drawer, DrawerProps, FormControlLabel, Switch, Tooltip } from '@mui/material';
 import { useAppStore } from '@/store';
 import { LinkToPage } from '@/utils';
-import { useEventLogout, useEventSwitchDarkMode, useIsAuthenticated, useIsMobile } from '@/hooks';
-import { AppIconButton, UserInfo } from '@/components';
+import { useEventSwitchDarkMode, useIsMobile } from '@/hooks';
+import { UserInfo } from '@/components';
 import { SIDE_BAR_WIDTH, TOP_BAR_DESKTOP_HEIGHT } from '../config';
 import SideBarNavList from './SideBarNavList';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export interface SideBarProps extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'variant' | 'onClose'> {
   items: Array<LinkToPage>;
@@ -20,11 +21,12 @@ export interface SideBarProps extends Pick<DrawerProps, 'anchor' | 'className' |
  */
 const SideBar: FunctionComponent<SideBarProps> = ({ anchor, open, variant, items, onClose, ...restOfProps }) => {
   const [state] = useAppStore();
-  const isAuthenticated = useIsAuthenticated();
+  const { user, error, isLoading } = useUser();
+
+  const isAuthenticated = !!user;
   const onMobile = useIsMobile();
 
   const onSwitchDarkMode = useEventSwitchDarkMode();
-  const onLogout = useEventLogout();
 
   const handleAfterLinkClick = useCallback(
     (event: MouseEvent) => {
@@ -59,7 +61,7 @@ const SideBar: FunctionComponent<SideBarProps> = ({ anchor, open, variant, items
       >
         {isAuthenticated && (
           <>
-            <UserInfo showAvatar />
+            <UserInfo showAvatar user={user} />
             <Divider />
           </>
         )}
@@ -83,8 +85,6 @@ const SideBar: FunctionComponent<SideBarProps> = ({ anchor, open, variant, items
               control={<Switch checked={state.darkMode} onChange={onSwitchDarkMode} />}
             />
           </Tooltip>
-
-          {isAuthenticated && <AppIconButton icon="logout" title="Logout Current User" onClick={onLogout} />}
         </Stack>
       </Stack>
     </Drawer>

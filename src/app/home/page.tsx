@@ -1,10 +1,5 @@
 import { Metadata, NextPage } from 'next';
-import { Stack } from '@mui/material';
-import DemoAppAlert from '../dev/components/DemoAppAlerts';
-import DemoAppButton from '../dev/components/DemoAppButton';
-import DemoAppIcon from '../dev/components/DemoAppIcon';
-import DemoAppIconButton from '../dev/components/DemoAppIconButton';
-import DemoAppImage from '../dev/components/DemoAppImage';
+import { Stack, Typography } from '@mui/material';
 
 export const metadata: Metadata = {
   title: 'Small Group Dinner Scheduler',
@@ -18,11 +13,7 @@ const Home: NextPage = () => {
   return (
     <Stack spacing={2} padding={2}>
       <Stack alignItems="center" spacing={1}>
-        <DemoAppAlert />
-        <DemoAppButton />
-        <DemoAppIcon />
-        <DemoAppIconButton />
-        <DemoAppImage />
+        <Typography>Home</Typography>
       </Stack>
     </Stack>
   );
