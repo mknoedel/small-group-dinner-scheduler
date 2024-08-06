@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -22,7 +22,7 @@ import {
   GridFilterModel,
   GridToolbar,
   GridToolbarExport,
-  GridToolbarQuickFilter
+  GridToolbarQuickFilter,
 } from '@mui/x-data-grid';
 import {
   randomCreatedDate,
@@ -103,9 +103,7 @@ const initialRows: GridRowsProp = [
 
 interface EditToolbarProps {
   setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
-  setRowModesModel: (
-    newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
-  ) => void;
+  setRowModesModel: (newModel: (oldModel: GridRowModesModel) => GridRowModesModel) => void;
 }
 
 function EditToolbar(props: EditToolbarProps) {
@@ -113,7 +111,10 @@ function EditToolbar(props: EditToolbarProps) {
 
   const handleClick = () => {
     const id = randomId();
-    setRows((oldRows) => [{ id, host: '', partyDate: '', group: '', name: '', description: '', isNew: true }, ...oldRows]);
+    setRows((oldRows) => [
+      { id, host: '', partyDate: '', group: '', name: '', description: '', isNew: true },
+      ...oldRows,
+    ]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
       [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
@@ -254,9 +255,7 @@ const DinnerTable: NextPage = () => {
     <Stack>
       <FormControlLabel
         checked={ignoreDiacritics}
-        onChange={(event) =>
-          setIgnoreDiacritics((event.target as HTMLInputElement).checked)
-        }
+        onChange={(event) => setIgnoreDiacritics((event.target as HTMLInputElement).checked)}
         control={<Switch />}
         label="Ignore diacritics"
       />
@@ -285,7 +284,7 @@ const DinnerTable: NextPage = () => {
           onRowModesModelChange={handleRowModesModelChange}
           onRowEditStop={handleRowEditStop}
           processRowUpdate={processRowUpdate}
-          slots={{toolbar: EditToolbar as GridSlots['toolbar'],}}
+          slots={{ toolbar: EditToolbar as GridSlots['toolbar'] }}
           slotProps={{
             toolbar: { setRows, setRowModesModel, showQuickFilter: true },
           }}
@@ -293,6 +292,6 @@ const DinnerTable: NextPage = () => {
       </Stack>
     </Stack>
   );
-}
+};
 
 export default DinnerTable;
