@@ -7,7 +7,6 @@ import CurrentLayout from '@/layout';
 import './globals.css';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 
-
 const THEME_COLOR = (defaultTheme.palette?.primary as SimplePaletteColorOptions)?.main || '#FFFFFF';
 
 export const viewport: Viewport = {
@@ -29,9 +28,7 @@ const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
         <UserProvider>
           <AppStoreProvider>
             <ThemeProvider>
-              <CurrentLayout>
-                {children}
-              </CurrentLayout>
+              <CurrentLayout>{children}</CurrentLayout>
             </ThemeProvider>
           </AppStoreProvider>
         </UserProvider>

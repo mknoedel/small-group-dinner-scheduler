@@ -16,7 +16,7 @@ interface UserInfoProps {
 const UserInfo = ({ showAvatar = false, user, ...restOfProps }: UserInfoProps) => {
   const fullName = [user?.given_name || '', user?.family_name || ''].join(' ').trim();
   const avatar = user?.picture ? user?.picture : undefined;
-  const email = user?.email && [user?.email, user?.email_verified ? '' : '(UNVERIFIED)'].join(' ').trim()
+  const email = user?.email && [user?.email, user?.email_verified ? '' : '(UNVERIFIED)'].join(' ').trim();
 
   return (
     <Stack alignItems="center" minHeight="fit-content" marginBottom={2} {...restOfProps}>
