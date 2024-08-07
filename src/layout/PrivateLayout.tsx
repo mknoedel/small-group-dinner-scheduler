@@ -12,7 +12,7 @@ const SIDE_BAR_ITEMS: Array<LinkToPage> = [
   {
     title: 'Dinners',
     path: '/dinners',
-    icon: 'dinner'
+    icon: 'dinner',
   },
   {
     title: 'Home',

@@ -21,6 +21,9 @@ import {
   GridFilterModel,
   GridToolbarExport,
   GridToolbarQuickFilter,
+  GridToolbarColumnsButton,
+  GridToolbarFilterButton,
+  GridToolbarDensitySelector,
 } from '@mui/x-data-grid';
 import {
   randomCreatedDate,
@@ -31,7 +34,7 @@ import {
   randomCompanyName,
 } from '@mui/x-data-grid-generator';
 import { NextPage } from 'next';
-import { FormControlLabel, Stack, Switch } from '@mui/material';
+import { Box, FormControlLabel, Modal, Stack, Switch, Typography } from '@mui/material';
 import { useState } from 'react';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
@@ -63,7 +66,7 @@ function EditToolbar(props: EditToolbarProps) {
     ]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'host' },
+      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
     }));
   };
 
@@ -73,7 +76,16 @@ function EditToolbar(props: EditToolbarProps) {
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
         Add record
       </Button>
-      <GridToolbarExport />
+      <GridToolbarColumnsButton />
+      <GridToolbarFilterButton />
+      <GridToolbarDensitySelector slotProps={{ tooltip: { title: 'Change density' } }} />
+      <Box sx={{ flexGrow: 1 }} />
+      <GridToolbarExport
+        slotProps={{
+          tooltip: { title: 'Export data' },
+          button: { variant: 'outlined' },
+        }}
+      />
     </GridToolbarContainer>
   );
 }
@@ -85,7 +97,6 @@ const DinnerTablePage: NextPage = () => {
     items: [],
     quickFilterValues: [],
   });
-  const [ignoreDiacritics, setIgnoreDiacritics] = useState(true);
 
   const handleRowEditStop: GridEventListener<'rowEditStop'> = (params, event) => {
     if (params.reason === GridRowEditStopReasons.rowFocusOut) {
@@ -127,6 +138,8 @@ const DinnerTablePage: NextPage = () => {
     setRowModesModel(newRowModesModel);
   };
   const columns: GridColDef[] = [
+    { field: 'name', headerName: 'Name', width: 180, editable: true },
+    { field: 'description', headerName: 'Description', width: 400, editable: true },
     { field: 'host', headerName: 'Host', width: 180, editable: true },
     {
       field: 'partyDate',
@@ -143,8 +156,6 @@ const DinnerTablePage: NextPage = () => {
       type: 'singleSelect',
       valueOptions: groups,
     },
-    { field: 'name', headerName: 'Name', width: 180, editable: true },
-    { field: 'description', headerName: 'description', width: 400, editable: true },
     {
       field: 'actions',
       type: 'actions',
@@ -197,17 +208,35 @@ const DinnerTablePage: NextPage = () => {
     },
   ];
 
+  // Modal Stuff -- move to common component
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+
   return (
-    <Stack spacing={2} padding={2} style={{ height: '600px', maxHeight: '600px' }}>
-      {/* <FormControlLabel
-        checked={ignoreDiacritics}
-        onChange={(event) => setIgnoreDiacritics((event.target as HTMLInputElement).checked)}
-        control={<Switch />}
-        label="Ignore diacritics"
-      /> */}
+    <>
+      <Stack spacing={2} padding={2} style={{ height: '600px', maxHeight: '600px' }}>
         <DataGrid
-          key={ignoreDiacritics.toString()}
-          ignoreDiacritics={ignoreDiacritics}
+          key={'Dinners Table'}
+          ignoreDiacritics={true}
           rows={rows}
           columns={columns}
           initialState={{
@@ -217,13 +246,12 @@ const DinnerTablePage: NextPage = () => {
               },
             },
           }}
-          pageSizeOptions={[5, 10, 20, 100]}
+          pageSizeOptions={[5, 10, 25, 100]}
           filterModel={filterModel}
           onFilterModelChange={setFilterModel}
           checkboxSelection
           disableRowSelectionOnClick
-          disableColumnSelector
-          disableDensitySelector
+          onRowClick={() => handleOpen()}
           editMode="row"
           rowModesModel={rowModesModel}
           onRowModesModelChange={handleRowModesModelChange}
@@ -234,7 +262,23 @@ const DinnerTablePage: NextPage = () => {
             toolbar: { setRows, setRowModesModel, showQuickFilter: true },
           }}
         />
-    </Stack>
+      </Stack>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Dinner
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Details about this dinner
+          </Typography>
+        </Box>
+      </Modal>
+    </>
   );
 };
 

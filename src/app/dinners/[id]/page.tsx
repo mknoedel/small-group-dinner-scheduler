@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { NextPage } from 'next';
 import { Stack, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
@@ -13,10 +13,10 @@ import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 const DinnerPage: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  
+
   // TODO: Fetch whole dinner
-  const dinner: DinnerResponse = dinner1
-  
+  const dinner: DinnerResponse = dinner1;
+
   return (
     <Stack spacing={2} padding={2}>
       <Stack alignItems="center" spacing={1}>
@@ -29,21 +29,12 @@ const DinnerPage: NextPage = () => {
         <Typography>{dinner.capacity}</Typography>
         <Typography>{dinner.signUpMethod}</Typography>
         <Typography>Hosts</Typography>
-        {dinner?.hosts?.map((host) => (
-          <>
-            {JSON.stringify(host)}
-          </>
-        ))}
+        {dinner?.hosts?.map((host) => <>{JSON.stringify(host)}</>)}
         <Typography>Waitlist</Typography>
-        {dinner?.waitList?.map((waitlist) => (
-          <>
-            {JSON.stringify(waitlist)}
-          </>
-        ))}
+        {dinner?.waitList?.map((waitlist) => <>{JSON.stringify(waitlist)}</>)}
       </Stack>
     </Stack>
   );
 };
 
 export default withPageAuthRequired(DinnerPage);
-
