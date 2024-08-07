@@ -19,6 +19,11 @@ const SIDE_BAR_ITEMS: Array<LinkToPage> = [
     icon: 'login',
   },
   {
+    title: 'Home',
+    path: '/',
+    icon: 'home',
+  },
+  {
     title: 'About',
     path: '/about',
     icon: 'info',

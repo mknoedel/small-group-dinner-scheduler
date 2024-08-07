@@ -10,6 +10,11 @@ const TITLE_PRIVATE = 'Small Group Dinner Scheduler';
  */
 const SIDE_BAR_ITEMS: Array<LinkToPage> = [
   {
+    title: 'Dinners',
+    path: '/dinners',
+    icon: 'dinner'
+  },
+  {
     title: 'Home',
     path: '/',
     icon: 'home',

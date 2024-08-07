@@ -58,7 +58,7 @@ const rachelSignup: SignUpResponse = {
   user: rachel,
 };
 
-const dinner1: DinnerResponse = {
+export const dinner1: DinnerResponse = {
   id: '1',
   name: 'dinner',
   date: '12/12/2024',
@@ -71,7 +71,7 @@ const dinner1: DinnerResponse = {
   signUps: [taeganSignup, zachSignup],
   waitList: [gautamSignup, rachelSignup],
 };
-const dinner2: DinnerResponse = {
+export const dinner2: DinnerResponse = {
   id: '2',
   name: 'dinner',
   date: '12/12/2024',
@@ -84,7 +84,7 @@ const dinner2: DinnerResponse = {
   signUps: [taeganSignup, gautamSignup, rachelSignup],
   waitList: [zachSignup],
 };
-const dinner3: DinnerResponse = {
+export const dinner3: DinnerResponse = {
   id: '3',
   name: 'dinner',
   date: '12/12/2024',

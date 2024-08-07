@@ -19,6 +19,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
 import DangerousIcon from '@mui/icons-material/Dangerous';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
 ``;
 
 /**
@@ -53,4 +54,5 @@ export const ICONS /* Note: Setting type disables property autocomplete :( was -
   logout: ExitToAppIcon,
   notifications: NotificationsIcon,
   error: DangerousIcon,
+  dinner: RestaurantIcon,
 };
