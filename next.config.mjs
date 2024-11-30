@@ -6,7 +6,9 @@ const nextConfig = {
   images: { unoptimized: true },
   poweredByHeader: false,
   // You can add custom env variables here as well as in the .env file
-  env: {},
+  env: {
+    // AUTH0_BASE_URL: process.env.VERCEL_URL || process.env.AUTH0_BASE_URL,
+  },
   reactStrictMode: true, // false
 };
 
